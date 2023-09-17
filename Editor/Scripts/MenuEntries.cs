@@ -134,6 +134,17 @@ namespace GLTFast.Editor
             );
             if (!string.IsNullOrEmpty(path))
             {
+                var compressionSetting = "kCompressTexturesOnImport";
+                if (EditorPrefs.GetBool(compressionSetting)) {
+                    Debug.Log("Disabling texture compression to export lossless maps");
+                    EditorPrefs.SetBool(compressionSetting, false);
+                    AssetDatabase.Refresh();
+                    Debug.Log("Done");
+                } else {
+                    Debug.Log("Texture compression is already disabled, good");
+                }
+
+
                 SaveFolderPath = Directory.GetParent(path)?.FullName;
                 var settings = GetDefaultSettings(binary);
                 var goSettings = new GameObjectExportSettings { OnlyActiveInHierarchy = false };

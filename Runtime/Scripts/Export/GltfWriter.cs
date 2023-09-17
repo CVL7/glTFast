@@ -757,9 +757,7 @@ namespace GLTFast.Export
                 
                 Debug.Log("COPYING > " + fbx_path + " TO " + npath);
                 FileUtil.ReplaceFile(fbx_path, npath);
-            }
-
-            Debug.Log(">>>> DONT FORGET TO DISABLE COMPRESSION ON TEXTURES IN UNITY BEFORE EXPORTING");       
+            }    
 
             AssignMaterialsToMeshes();
 
