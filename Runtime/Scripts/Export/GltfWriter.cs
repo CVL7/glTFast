@@ -585,7 +585,7 @@ namespace GLTFast.Export
             }
 #endif
             m_BufferPath = bufferPath;
-
+            //Debug.Log(Path.GetFileName(m_BufferPath));
             var success = await Bake(Path.GetFileName(m_BufferPath), directory);
 
             if (!success)
@@ -750,6 +750,16 @@ namespace GLTFast.Export
                 await BakeMeshesLegacy();
 #endif
             }
+            
+            foreach (var unMesh in m_UnityMeshes){
+                var fbx_path = AssetDatabase.GetAssetPath(unMesh);
+                var npath = Path.Combine(directory, Path.GetFileName(fbx_path));
+                
+                Debug.Log("COPYING > " + fbx_path + " TO " + npath);
+                FileUtil.ReplaceFile(fbx_path, npath);
+            }
+
+            Debug.Log(">>>> DONT FORGET TO DISABLE COMPRESSION ON TEXTURES IN UNITY BEFORE EXPORTING");       
 
             AssignMaterialsToMeshes();
 

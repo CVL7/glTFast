@@ -298,10 +298,11 @@ namespace GLTFast.Export
             var pbr = new PbrMetallicRoughness { metallicFactor = 0, roughnessFactor = 1.0f };
 
             var hasAlphaSmoothness = uMaterial.IsKeywordEnabled(k_KeywordSmoothnessTextureAlbedoChannelA);
-
+            
             if (uMaterial.HasProperty(BaseColorProperty))
             {
-                pbr.BaseColor = uMaterial.GetColor(BaseColorProperty);
+                pbr.BaseColor = uMaterial.GetColor(BaseColorProperty).linear;
+                Debug.Log(pbr.BaseColor.linear);
             }
             else
             if (uMaterial.HasProperty(ColorProperty))

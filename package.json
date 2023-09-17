@@ -27,5 +27,8 @@
     "com.unity.burst": "1.6.6"
   },
   "type": "library",
-  "unityRelease": "7f1"
+  "unityRelease": "7f1",
+  "publishConfig": {
+    "registry": "https://package.openupm.com"
+  }
 }

@@ -75,7 +75,7 @@ namespace GLTFast.Export
             get
             {
                 if (m_ImageFormat != ImageFormat.Unknown) return m_ImageFormat;
-                return HasAlpha(m_Texture) ? ImageFormat.Png : ImageFormat.Jpg;
+                return ImageFormat.Png;
             }
         }
 

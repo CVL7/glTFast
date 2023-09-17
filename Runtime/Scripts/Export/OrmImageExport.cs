@@ -77,7 +77,7 @@ namespace GLTFast.Export
         }
 
         /// <inheritdoc />
-        protected override ImageFormat ImageFormat => m_ImageFormat != ImageFormat.Unknown ? m_ImageFormat : ImageFormat.Jpg;
+        protected override ImageFormat ImageFormat => m_ImageFormat != ImageFormat.Unknown ? m_ImageFormat : ImageFormat.Png;
 
         /// <inheritdoc />
         public override FilterMode FilterMode
